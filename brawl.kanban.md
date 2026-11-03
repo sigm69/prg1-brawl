@@ -6,12 +6,6 @@
 
 ## To Do
 
-#### Planera och skriv dina kort
-<!-- id: task-1793100000001-1 -->
-planering.md: ditt spel, planen och dina kort. Lägg in korten här. Visa läraren innan du skriver kod
-<!-- priority: critical -->
-<!-- source: planering.md:1 -->
-
 #### Krav: spelet börjar
 <!-- id: task-1793100000002-2 -->
 namnet frågas efter, båda har HP och startvärdena syns. För stort för ett pass, dela upp det i dina egna kort
@@ -40,6 +34,15 @@ rubrikerna längst ner i readme.md. faser.md fylls i längs vägen och blir klar
 <!-- source: faser.md:1 -->
 
 ## In Progress
+
+#### Planera och skriv dina kort
+<!-- id: task-1793100000001-1 -->
+planering.md: ditt spel, planen och dina kort. Lägg in korten här. Visa läraren innan du skriver kod
+<!-- priority: critical -->
+<!-- source: planering.md:1 -->
+
+#### Fixa skada namnutväljning Ai Och attackerande faser
+<!-- id: task-1793703406287-42 -->
 
 ## Done
 

@@ -5,8 +5,10 @@ vilka kort du bygger det med. Visa planen och korten för läraren innan du bör
 
 ## Mitt spel
 
-Kraven är samma för alla. Vad gör ditt spel till ditt? Vem är du, vem slåss du mot, och var? Vad
+Kraven är samma för alla. Vad gör ditt spel till ditt? Vem är du, vem slåss du mot, och var? Vad?
+Man är en gladiator i koluseum som slås för att få överleva och man slås mot olika varelser.
 kan spelaren välja mellan varje tur? Finns det en regel som bara ditt spel har?
+Spelaren för välja en action som att blocka elelr attakera.
 
 Skriv några meningar. Idén får ändras längs vägen, och då skriver du vad du ändrade i faser.md.
 
@@ -14,10 +16,10 @@ Skriv några meningar. Idén får ändras längs vägen, och då skriver du vad 
 
 Tänk igenom dessa steg på samma sätt som vi har gjort spårningen tillsammans på tavlan. Vilka variabler behöver du? Vilka villkor? Vad ska de göra? Vad sker i nästa steg/rad?
 
-1. Var börjar programmet, och vad finns innan första turen?
-2. Vad händer inuti en tur, i vilken ordning?
-3. Vad avgör om det blir en tur till?
-4. Vad händer efter sista turen?
+1. Var börjar programmet, och vad finns innan första turen? Det börjar med ditt namn och seanre innan fighten väljer man ett vapen
+2. Vad händer inuti en tur, i vilken ordning? Man väljer först om man ska blocka eller attackera sedan så avgör boten om den ska blocka eller attackera
+3. Vad avgör om det blir en tur till? efter att blocken eller attacken är utförd
+4. Vad händer efter sista turen? Spelet avslutas om man förlorar medans om man vinner går det till nästa tur.
 
 ## Min plan
 
