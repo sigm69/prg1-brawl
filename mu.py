@@ -9,3 +9,6 @@ if input("armor") in armour:
 import random
 
 print(random.choice(armour))
+
+for (i) in range (1,9):
+    print(i)

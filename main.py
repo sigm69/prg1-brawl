@@ -1,11 +1,13 @@
 import random
 import time
 
-def liv_kvar(player1_damage, fiende_armour):
-    print (player1_damage / fiende_armour)
 
+def stamina_drain(stamina_drain,stamina):
+    stamina = stamina_drain-stamina
 
 # Startvärdena väljer du själv.
+
+running = True
 
 game_stats = {
     "player1": {
@@ -18,44 +20,67 @@ game_stats = {
         "hp": 50,
         "armour": 25,
         "stamina": 50,
-        "skada": random.randint(1, 5),
+        "skada": 5,
     },
     "fiende2": {
         "name": "Jens.First phase",
         "hp": 100,
         "armour": 25,
         "stamina": 100,
-        "skada": random.randint(1, 15),
+        "skada": 15,
     },
     "fiende3": {
         "name": "david",
         "hp": 200,
         "armour": 25,
         "stamina": 200,
-        "skada": random.randint(5, 20),
+        "skada": 20,
     },
     "fiende4": {
         "name": "Tiger 2",
         "hp": 500,
         "armour": 100,
         "stamina": 1,
-        "skada": random.randint(25, 100),
+        "skada": 100,
     },
     "fiende5": {
         "name": "mbt",
         "hp": 10000,
         "armour": 250,
         "stamina": 1,
-        "skada": random.randint(50, 250),
+        "skada": 250,
     },
     "fiende6": {
         "name": "Jens. last phase",
         "hp": 25000,
         "armour": 500,
         "stamina": 1,
-        "skada": random.randint(1, 1000),
+        "skada": 1000,
     },
 }
+weapons_list ={
+    "rocket launcher":{
+        "damage": 250-500,
+        "block": 0,
+    },
+    "katana":{
+        "damage": 5-200,
+        "block": 15,
+    },
+    "laser beam":{
+        "damage": 10000-100000,
+        "block": 100,
+    },
+    "stick":{
+        "damage": 1000-1000,
+        "block": 0,
+    },
+    "water gun":{
+        "damage": 0-100,
+        "block": 5,
+    }
+}
+
 
 # Ditt första kort börjar här.
 
@@ -64,37 +89,39 @@ print("-"*20)
 print (gamename)
 player_1 = input("player name...")
 
-print("""\nweapons\nrocketlauncher (5 shoots)\nkatana\nlaser beam (one time use)\nstick\nwater gun\n""")
+print("""\nweapons\nrocketlauncher\nkatana\nlaser beam\nstick\nwater gun\n""")
 
-while True:
+for weapon in weapons_list:
     weapon = input(f"{player_1} choose weapon...").lower()
     if  weapon == ("rocketlauncher"):
-        player1_damage = 25
-        player1_block_power = 0
-        print("damage 25 "+"block 0")
+        print(weapons_list["rocket launcher"])
+        player1_damage = random.randint(250,500)
+        player1_block = 0
         break
     elif weapon == ("katana"):
-        player1_damage = random.randint(5,20)
-        player1_block_power = 15
-        print("damage 5-20 "+"block 15")
+        print(weapons_list["katana"])
+        player1_damage = random.randint(5,200)
+        player1_block = 15
         break
     elif weapon == ("laser beam"):
-        player1_damage = 10000
-        player1_block_power = 100
-        print("damage 10000 "+ "block 100")
+        print(weapons_list["laser beam"])
+        player1_damage = random.randint(10000,100000)
+        player1_block = 1000
         break
     elif weapon == ("stick"):
-        player1_damage = random.randint(-100,100)
-        player1_block_power = 0
-        print("damage -100-100 "+"block 0")
+        print(weapons_list["stick"])
+        player1_damage = random.randint(-1000,1000)
+        player1_block = 0
         break
     elif weapon == ("water gun"):
-        player1_damage = random.randint(0,10)
-        player1_block_power = random.randint(1,5)
-        print("damage 0-10 "+"block 1-5")
+        print(weapons_list["water gun"])
+        player1_damage = random.randint(0,100)
+        player1_block = 5
         break
     else:
         print("you typed incorectly try again")
+
+
 
 print("""\narmour\nHeavy armour\nLight armour\nmedium armour\n""")
 
@@ -122,8 +149,4 @@ print("\nPress enter to start")
 input()
 print (game_stats["fiende1"])
 
-player1_turn = input("Attack or Block ").lower
-if player1_turn == "attack":
-    liv_kvar(player1_damage, 25)
-    
-    
+
