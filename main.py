@@ -58,28 +58,33 @@ game_stats = {
         "skada": 1000,
     },
 }
-weapons_list ={
-    "rocket launcher":{
-        "damage": 250-500,
+weapons_list = [
+    {
+        "name": "rocket launcher",
+        "damage": (250, 500),
         "block": 0,
     },
-    "katana":{
-        "damage": 5-200,
+    {
+        "name": "katana",
+        "damage": (5, 200),
         "block": 15,
     },
-    "laser beam":{
-        "damage": 10000-100000,
+    {
+        "name": "laser beam",
+        "damage": (10000, 100000),
         "block": 100,
     },
-    "stick":{
-        "damage": 1000-1000,
+    {
+        "name": "stick",
+        "damage": (1000, 1000),
         "block": 0,
     },
-    "water gun":{
-        "damage": 0-100,
+    {
+        "name": "water gun",
+        "damage": (0, 100),
         "block": 5,
-    }
-}
+    },
+]
 
 
 # Ditt första kort börjar här.
@@ -91,35 +96,22 @@ player_1 = input("player name...")
 
 print("""\nweapons\nrocketlauncher\nkatana\nlaser beam\nstick\nwater gun\n""")
 
-for weapon in weapons_list:
-    weapon = input(f"{player_1} choose weapon...").lower()
-    if  weapon == ("rocketlauncher"):
-        print(weapons_list["rocket launcher"])
-        player1_damage = random.randint(250,500)
-        player1_block = 0
-        break
-    elif weapon == ("katana"):
-        print(weapons_list["katana"])
-        player1_damage = random.randint(5,200)
-        player1_block = 15
-        break
-    elif weapon == ("laser beam"):
-        print(weapons_list["laser beam"])
-        player1_damage = random.randint(10000,100000)
-        player1_block = 1000
-        break
-    elif weapon == ("stick"):
-        print(weapons_list["stick"])
-        player1_damage = random.randint(-1000,1000)
-        player1_block = 0
-        break
-    elif weapon == ("water gun"):
-        print(weapons_list["water gun"])
-        player1_damage = random.randint(0,100)
-        player1_block = 5
-        break
-    else:
-        print("you typed incorectly try again")
+chosen_weapon = None
+
+while chosen_weapon == None:
+    Choice = input ("type a weapon name").lower()
+    for weapon in weapons_list:
+        if weapon["name"] == Choice:
+            chosen_weapon = weapon
+            break
+        else:
+            print("weapon not found ")
+
+
+if chosen_weapon:
+    print(f"You chose: {chosen_weapon['name']}")
+else:
+    print("Weapon not found!\n")
 
 
 
