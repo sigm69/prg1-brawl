@@ -1,13 +1,55 @@
 import random
 import time
 
-
-def stamina_drain(stamina_drain,stamina):
-    stamina = stamina_drain-stamina
+def Fighting_turn(player1_hp, weapon_min, weapon_max, weapon_block, fiende_armour, fiende_hp, fiende_skada, player1_stamina, player1_staminadrain):
+    global running
+    global turn
+    while turn:
+        attack_or_block = input("\nType attack to attack \nAnd block to block \n ").lower()
+        weapon_damage = random.randint(weapon_min,weapon_max)
+        weapon_block = 10
+        if player1_stamina >0:
+            if attack_or_block == "attack" or attack_or_block == "a":
+                sigma = weapon_damage / fiende_armour
+                fiende_hp = fiende_hp-sigma
+                Liv_kvar = fiende_skada
+                player1_hp = player1_hp-Liv_kvar
+                player1_stamina = player1_stamina - player1_staminadrain
+                print(f"\ndin skada {sigma}")
+                print(f"fiendens liv {fiende_hp}")
+                print(f"ditt liv {player1_hp}")
+                print(f"stamina kvar {player1_stamina}")
+            elif attack_or_block == "block" or attack_or_block == "b":
+                Liv_kvar = fiende_skada/weapon_block
+                player1_hp = player1_hp-Liv_kvar
+                player1_stamina = player1_stamina + 25
+                print(f"ditt liv {player1_hp}")
+                print(f"fiendens liv {fiende_hp}")
+                print(f"din stamina {player1_stamina}")
+            else:
+                print("")
+            if fiende_hp <= 0:
+                running = False
+                turn = False
+                print ("\ndu vann grattis")
+            elif player1_hp <=0:
+                print("\ndu dog starta om")
+                running = False
+                turn = False
+            else:
+                running = True
+                turn = True
+        else:
+            player1_stamina = player1_stamina + 50
+            player1_hp = player1_hp-fiende_skada
+            print(f"\ndin stamina tog slut \ndin nuvarande stamina är {player1_stamina}")
+            print(f"ditt liv{player1_hp}")
+            print(f"fiendens liv {fiende_hp}")
 
 # Startvärdena väljer du själv.
 
 running = True
+turn = True
 
 game_stats = {
     "player1": {
@@ -76,7 +118,7 @@ weapons_list = [
     },
     {
         "name": "stick",
-        "damage": (1000, 1000),
+        "damage": (-1000, 1000),
         "block": 0,
     },
     {
@@ -110,10 +152,11 @@ while chosen_weapon == None:
 
 if chosen_weapon:
     print(f"You chose: {chosen_weapon['name']}")
+    min, max = chosen_weapon["damage"]
+    print(min, max)
+    weapon_block = chosen_weapon["block"]
 else:
     print("Weapon not found!\n")
-
-
 
 print("""\narmour\nHeavy armour\nLight armour\nmedium armour\n""")
 
@@ -140,5 +183,7 @@ while True:
 print("\nPress enter to start")
 input()
 print (game_stats["fiende1"])
+
+Fighting_turn(100, min, max, weapon_block, 25, 50, 5, 100, player1_stamina_drain)
 
 
