@@ -4,6 +4,7 @@ import time
 def Fighting_turn(player1_hp, weapon_min, weapon_max, weapon_block, fiende_armour, fiende_hp, fiende_skada, player1_stamina, player1_staminadrain):
     global running
     global turn
+    döda_datorn = 10
     while turn:
         attack_or_block = input("\nType attack to attack \nAnd block to block \n ").lower()
         weapon_damage = random.randint(weapon_min,weapon_max)
@@ -34,6 +35,12 @@ def Fighting_turn(player1_hp, weapon_min, weapon_max, weapon_block, fiende_armou
                 print ("\ndu vann grattis")
             elif player1_hp <=0:
                 print("\ndu dog starta om")
+                time.sleep(15)
+                while True:
+                    döda_datorn = döda_datorn *99999
+                    print(döda_datorn)
+                    if döda_datorn == 1:
+                        break
                 running = False
                 turn = False
             else:
@@ -184,6 +191,6 @@ print("\nPress enter to start")
 input()
 print (game_stats["fiende1"])
 
-Fighting_turn(100, min, max, weapon_block, 25, 50, 5, 100, player1_stamina_drain)
+Fighting_turn(100, min, max, weapon_block, 25, 5000, 5, 100, player1_stamina_drain)
 
 
